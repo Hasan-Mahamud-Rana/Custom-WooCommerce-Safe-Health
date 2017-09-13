@@ -310,10 +310,8 @@ if ( ! function_exists( 'wc_tax_enabled' ) ) {
 		} else {
 			$wc_tax_enabled = apply_filters( 'wc_tax_enabled', get_option( 'woocommerce_calc_taxes' ) === 'yes' );
 		}
-
 		#$wc_tax_enabled = apply_filters( 'wc_tax_enabled', get_option( 'woocommerce_calc_taxes' ) === 'yes' );
 		return $wc_tax_enabled;
-
 	}
 }
 
@@ -335,9 +333,7 @@ if ( ! function_exists( 'wc_prices_include_tax' ) ) {
 	 * @return bool
 	 */
 	function wc_prices_include_tax() {
-		$wc_prices_include_tax = wc_tax_enabled() && 'yes' === get_option( 'woocommerce_prices_include_tax' );
-
-		return $wc_prices_include_tax;
+		return wc_tax_enabled() && 'yes' === get_option( 'woocommerce_prices_include_tax' );
 	}
 }
 
@@ -364,7 +360,7 @@ function wc_is_webhook_valid_topic( $topic ) {
 	}
 
 	$valid_resources = apply_filters( 'woocommerce_valid_webhook_resources', array( 'coupon', 'customer', 'order', 'product' ) );
-	$valid_events    = apply_filters( 'woocommerce_valid_webhook_events', array( 'created', 'updated', 'deleted' ) );
+	$valid_events    = apply_filters( 'woocommerce_valid_webhook_events', array( 'created', 'updated', 'deleted', 'restored' ) );
 
 	if ( in_array( $resource, $valid_resources ) && in_array( $event, $valid_events ) ) {
 		return true;

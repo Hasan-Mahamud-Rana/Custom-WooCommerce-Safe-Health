@@ -362,7 +362,6 @@ class WC_Shipping {
 			foreach ( $this->load_shipping_methods( $package ) as $shipping_method ) {
 				// Shipping instances need an ID
 				if ( ! $shipping_method->supports( 'shipping-zones' ) || $shipping_method->get_instance_id() ) {
-
 					$package['rates'] = $package['rates'] + $shipping_method->get_rates_for_package( $package ); // + instead of array_merge maintains numeric keys
 				}
 			}
@@ -378,6 +377,7 @@ class WC_Shipping {
 		} else {
 			$package['rates'] = $stored_rates['rates'];
 		}
+
 		return $package;
 	}
 

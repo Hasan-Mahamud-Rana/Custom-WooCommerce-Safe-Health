@@ -1055,7 +1055,6 @@ function wc_format_stock_quantity_for_display( $stock_quantity, $product ) {
  */
 function wc_format_sale_price( $regular_price, $sale_price ) {
  	global $product;
-
 	$productType = $product->product_type;
 	$current_user = wp_get_current_user();
 	$current_user_role = $current_user->roles[0];
